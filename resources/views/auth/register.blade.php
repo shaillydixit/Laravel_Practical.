@@ -76,44 +76,7 @@
                 </x-button>
             </div>
         </form>
+
+  </x-guest-layout>
         </x-auth-card>
-
- 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-
-<script type="text/javascript">
-
- $('#contactForm').on('submit',function(e){
-     e.preventDefault();
-
-     let name = $('#name').val();
-        let email = $('#email').val();
-        let gender = $('#gender').val();
-        let profile_photo = $('#profile_photo').val();
-        let dob = $('#dob').val();
-        let anniversary_date = $('#anniversary_date').val();
-
-     $.ajax({
-       url: "/register",
-       type:"POST",
-       contentType: false,
-       processData: false,
-       data:{
-         "_token": "{{ csrf_token() }}",
-         name:name,
-            email:email,
-            gender:gender,
-            profile_photo:profile_photo,
-            dob:dob,
-            anniversary_date:anniversary_date,
-       },
-       success:function(response){
-         console.log(response);
-         if (response) {
-           $("#contactForm")[0].reset(); 
-         }
-       },
-      });
-     });
-   </script>
-</x-guest-layout>
+     
